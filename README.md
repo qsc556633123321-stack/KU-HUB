@@ -33,7 +33,7 @@ python3 -m http.server 8000
 
 - `index.html`：首頁與 SEO／分享資訊。
 - `project.html`：靜態專案詳細頁。
-- `style.css`：深色科技風格、響應式版面與動畫。
+- `style.css`：溫馨鄉村風格、響應式版面與支援減少動態偏好的動畫。
 - `script.js`：行動版導覽選單。
 - `js/projects.js`：資料載入、分類、搜尋、排序及卡片產生。
 - `js/project-detail.js`：詳細頁資料呈現。
