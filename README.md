@@ -1,30 +1,41 @@
-# KU HUB
+# KU HUB V1.1
 
-KU HUB 是使用純 HTML、CSS 與 JavaScript 製作的個人專案入口網站，不需要伺服器、資料庫、建置流程或 API 金鑰。所有網站內容均可由 GitHub Pages 靜態託管。
+KU HUB 是以原生 HTML、CSS 與 Vanilla JavaScript 製作的動態專案入口。專案資料放在 `data/projects.json`，不需建置流程、後端、資料庫或 API Key，可部署於 GitHub Pages。
 
 ## 本機預覽
 
-直接在瀏覽器開啟 `index.html` 即可預覽；也可以將此資料夾部署到任何靜態網站託管服務。
+首頁和專案詳細頁使用 Fetch API 載入 JSON。由於瀏覽器通常會限制 `file://` 頁面讀取本機 JSON，請透過本機 HTTP Server 預覽，而不要直接雙擊開啟 HTML：
+
+```bash
+python3 -m http.server 8000
+```
+
+接著在瀏覽器開啟 <http://localhost:8000/>。若已安裝 Node.js，也可執行 `npx serve .`。
+
+## 專案資料維護
+
+編輯 `data/projects.json` 陣列即可新增或更新專案。每筆資料包含 `id`、`name`、`category`、`description`、`longDescription`、`version`、`status`、`technologies`、`image`、`github`、`demo`、`featured` 與 `lastUpdated`。未知資料請留空或使用「資料待補」／「版本未提供」，不要填入未確認的連結。
+
+- `category` 使用 `Web App`、`AI Tools`、`Game Development`、`Automation`、`Bot` 或 `Other`。
+- `status` 使用「開發中」、「測試中」、「已完成」、「暫停開發」或「資料待補」。
+- 外部連結及圖片只接受 HTTPS；圖片缺失或無法載入時會使用預設視覺。
+- 專案詳細頁使用靜態 `project.html?id=<專案 id>`，可直接分享，並可由瀏覽器上一頁返回。
+- 卡片、分類數量、搜尋結果與首頁統計均依 JSON 動態產生。
 
 ## 部署到 GitHub Pages
 
-1. 將 `index.html`、`style.css`、`script.js` 與 `README.md` 放在 GitHub 儲存庫根目錄，提交並推送到 GitHub。
-2. 在儲存庫開啟 **Settings → Pages**。
-3. 在 **Build and deployment** 選擇 **Deploy from a branch**。
-4. 選擇網站所在的分支（例如 `main`）及資料夾 `/(root)`，按下 **Save**。
-5. 等待部署完成，GitHub Pages 會在 Pages 設定頁顯示網站網址。
-
-若使用 `username.github.io` 命名的儲存庫，網站會部署在網域根目錄；一般儲存庫則會部署在 `https://username.github.io/repository-name/`。網站內部資源已使用相對路徑，兩種網址都能正常載入。
-
-## 個人化內容
-
-- 將 `index.html` 內的 `your-username` 替換成自己的 GitHub 使用者名稱。
-- 在 `index.html` 更新自我介紹、技能、專案簡介及技術標籤。
-- 專案卡片目前指向 `./projects/<專案資料夾>/`。將自己的專案頁放入對應資料夾，或依實際位置調整卡片連結；所有站內連結都應維持相對路徑。
-- 字型使用 Google Fonts 的 Space Grotesk 與 DM Mono；若希望完全離線運作，可移除 `index.html` 中的 Google Fonts 載入標籤，頁面會使用後備字型。
+1. 將網站檔案提交至 Repository。
+2. 在 GitHub 開啟 **Settings → Pages**。
+3. 選擇 **Deploy from a branch**，指定分支與 `/(root)` 資料夾。
+4. 儲存並等待部署完成。網站內部資源使用相對路徑，可部署於 Repository 子路徑。
 
 ## 檔案
 
-- `index.html`：網站內容與結構。
+- `index.html`：首頁與 SEO／分享資訊。
+- `project.html`：靜態專案詳細頁。
 - `style.css`：深色科技風格、響應式版面與動畫。
-- `script.js`：手機導覽選單與專案分類篩選。
+- `script.js`：行動版導覽選單。
+- `js/projects.js`：資料載入、分類、搜尋、排序及卡片產生。
+- `js/project-detail.js`：詳細頁資料呈現。
+- `data/projects.json`：專案資料來源。
+- `assets/icons/favicon.svg`：網站圖示。

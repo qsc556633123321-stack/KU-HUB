@@ -4,13 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#101513">
-    <meta name="description" content="KU HUB 個人專案入口，探索 EventFlow、AI Tools、Game Lab 與 Web Projects。">
+    <meta name="description" content="KU HUB — 探索 Web 開發、AI 自動化、遊戲設計與各種正在實現的技術專案。">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="KU HUB">
+    <meta property="og:title" content="KU HUB — 把想法變成真正能運作的系統">
+    <meta property="og:description" content="探索 Web 開發、AI 自動化、遊戲設計與各種正在實現的技術專案。">
+    <meta property="og:url" content="https://qsc556633123321-stack.github.io/KU-HUB/">
+    <link rel="canonical" href="https://qsc556633123321-stack.github.io/KU-HUB/">
+    <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
     <title>KU HUB — 個人專案入口</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
+    <script type="module" src="./js/projects.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">跳至主要內容</a>
@@ -23,8 +31,7 @@
         <nav class="site-nav" id="site-nav" aria-label="主要導覽">
           <a href="#projects">專案</a>
           <a href="#about">關於</a>
-          <a href="#skills">技能</a>
-          <a class="nav-contact" href="#contact">聯絡我 <span aria-hidden="true">↗</span></a>
+          <a class="nav-contact" href="https://github.com/qsc556633123321-stack" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
         </nav>
       </div>
     </header>
@@ -32,82 +39,62 @@
     <main id="main">
       <section class="hero page-shell" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="status-dot"></span> 個人實驗室・持續更新中</p>
-          <h1 id="hero-title">想法，<br><span>正在發生。</span></h1>
-          <p class="hero-description">嗨，我是 KU。一個喜歡把好奇心寫成程式的人。這裡收集正在打造、拆解與重新想像的作品。</p>
+          <p class="eyebrow"><span class="status-dot"></span> KU HUB / PROJECT ARCHIVE</p>
+          <h1 id="hero-title">KU HUB —<br><span>把想法變成真正能運作的系統。</span></h1>
+          <p class="hero-description">探索 Web 開發、AI 自動化、遊戲設計與各種正在實現的技術專案。</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#projects">探索專案 <span aria-hidden="true">↓</span></a>
-            <a class="text-link" href="#about">認識我 <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/qsc556633123321-stack" target="_blank" rel="noopener noreferrer">GitHub 個人頁面 <span aria-hidden="true">↗</span></a>
           </div>
-          <div class="hero-meta"><span>目前狀態</span><strong>BUILDING SOMETHING NEW</strong><span class="meta-line"></span><span>台灣・UTC+8</span></div>
+          <div class="hero-meta"><span>資料來源</span><strong>PROJECTS.JSON</strong><span class="meta-line"></span><span>持續更新</span></div>
         </div>
         <div class="hero-art" role="img" aria-label="KU HUB 數位工作台視覺">
           <div class="art-grid"></div>
           <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-          <div class="art-cross cross-one">+</div><div class="art-cross cross-two">+</div>
-          <div class="art-label label-top">KU / CREATIVE DEVELOPER</div>
-          <div class="art-core"><span class="core-ring"></span><span class="core-word">KU<br><i>HUB</i></span><span class="core-index">001 — 026</span></div>
+          <div class="art-cross cross-one" aria-hidden="true">+</div><div class="art-cross cross-two" aria-hidden="true">+</div>
+          <div class="art-label label-top">KU / PROJECT ARCHIVE</div>
+          <div class="art-core"><span class="core-ring"></span><span class="core-word">KU<br><i>HUB</i></span><span class="core-index">V1.1 — 001</span></div>
           <div class="art-label label-bottom"><span>IDEAS IN MOTION</span><span>● LIVE</span></div>
-          <div class="art-coordinate">25°02' N<br>121°33' E</div>
+          <div class="art-coordinate">STATIC<br>PORTFOLIO</div>
         </div>
         <a class="scroll-cue" href="#projects"><span></span>往下探索</a>
+      </section>
+
+      <section class="stats-section page-shell" aria-label="專案統計">
+        <div class="stat-item"><strong id="project-total">—</strong><span>個專案</span></div>
+        <div class="stat-item"><strong id="domain-total">—</strong><span>個技術領域</span></div>
+        <div class="stat-item"><strong id="featured-total">—</strong><span>個精選專案</span></div>
       </section>
 
       <section class="projects-section" id="projects" aria-labelledby="projects-title">
         <div class="page-shell">
           <div class="section-heading">
-            <div><p class="eyebrow">01 / SELECTED WORK</p><h2 id="projects-title">專案<span class="heading-period">.</span></h2></div>
-            <p class="section-note">從日常工具到互動實驗，<br>每個點子都值得動手試試。</p>
+            <div><p class="eyebrow">01 / PROJECTS</p><h2 id="projects-title">專案<span class="heading-period">.</span></h2></div>
+            <p class="section-note">從實際運作的系統到持續探索的點子，<br>每個專案都有自己的進度。</p>
           </div>
-          <div class="filter-bar" role="group" aria-label="依分類篩選專案">
-            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">全部 <span>04</span></button>
-            <button class="filter-button" type="button" data-filter="eventflow" aria-pressed="false">EventFlow <span>01</span></button>
-            <button class="filter-button" type="button" data-filter="ai-tools" aria-pressed="false">AI Tools <span>01</span></button>
-            <button class="filter-button" type="button" data-filter="game-lab" aria-pressed="false">Game Lab <span>01</span></button>
-            <button class="filter-button" type="button" data-filter="web-projects" aria-pressed="false">Web Projects <span>01</span></button>
+          <section class="featured-section" id="featured-section" aria-labelledby="featured-title" hidden>
+            <div class="subsection-heading"><h3 id="featured-title">精選專案<span class="heading-period">.</span></h3><span>FEATURED</span></div>
+            <div class="project-grid featured-grid" id="featured-grid"></div>
+          </section>
+          <p class="load-state" id="project-load-state" role="status" aria-live="polite">正在載入專案資料…</p>
+          <div class="project-controls" aria-label="專案搜尋與篩選">
+            <label class="search-control"><span class="visually-hidden">搜尋專案名稱、描述或技術</span><input id="project-search" type="search" placeholder="搜尋名稱、描述或技術…" autocomplete="off"></label>
+            <label class="select-control"><span class="visually-hidden">依開發狀態篩選</span><select id="status-filter"><option value="all">所有狀態</option><option>開發中</option><option>測試中</option><option>已完成</option><option>暫停開發</option><option>資料待補</option></select></label>
+            <label class="select-control"><span class="visually-hidden">專案排序方式</span><select id="project-sort"><option value="newest">最近更新</option><option value="oldest">最早更新</option></select></label>
           </div>
-          <div class="project-grid" id="project-grid">
-            <article class="project-card" data-category="eventflow">
-              <a class="project-visual visual-event" href="./projects/eventflow/" aria-label="前往 EventFlow 專案">
-                <span class="visual-kicker">EVENT / 01</span><span class="event-window"><span class="window-top"><i></i><i></i><i></i><b>UPCOMING</b></span><span class="event-row"><b>18</b><span>DESIGN MEETUP<small>台北・松菸文創園區</small></span><i>↗</i></span><span class="event-row muted"><b>24</b><span>INDIE NIGHT<small>台中・Legacy</small></span><i>↗</i></span></span><span class="visual-index">EF — 001</span>
-              </a>
-              <div class="project-info"><div class="project-title-line"><div><p class="project-category">EVENTFLOW</p><h3>EventFlow</h3></div><a class="project-arrow" href="./projects/eventflow/" aria-label="查看 EventFlow">↗</a></div><p class="project-description">讓活動探索與報名流程更簡單，從靈感到出席，一切剛剛好。</p><div class="tag-list"><span>React</span><span>TypeScript</span><span>UX</span></div></div>
-            </article>
-            <article class="project-card" data-category="ai-tools">
-              <a class="project-visual visual-ai" href="./projects/ai-tools/" aria-label="前往 AI Tools 專案">
-                <span class="visual-kicker">INTELLIGENCE / 02</span><span class="ai-orb"><i></i><i></i><i></i><b>AI</b></span><span class="ai-caption">MAKE ROOM<br>FOR BETTER IDEAS.</span><span class="visual-index">AT — 002</span>
-              </a>
-              <div class="project-info"><div class="project-title-line"><div><p class="project-category">AI TOOLS</p><h3>AI Tools</h3></div><a class="project-arrow" href="./projects/ai-tools/" aria-label="查看 AI Tools">↗</a></div><p class="project-description">一組為創作流程設計的小工具，讓重複工作少一點，靈感多一點。</p><div class="tag-list"><span>JavaScript</span><span>Automation</span><span>AI</span></div></div>
-            </article>
-            <article class="project-card" data-category="game-lab">
-              <a class="project-visual visual-game" href="./projects/game-lab/" aria-label="前往 Game Lab 專案">
-                <span class="visual-kicker">PLAY / 03</span><span class="game-board"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="game-score">SCORE <b>00840</b></span><span class="visual-index">GL — 003</span>
-              </a>
-              <div class="project-info"><div class="project-title-line"><div><p class="project-category">GAME LAB</p><h3>Game Lab</h3></div><a class="project-arrow" href="./projects/game-lab/" aria-label="查看 Game Lab">↗</a></div><p class="project-description">小型遊戲與互動玩法的實驗場，規則簡單，玩起來不簡單。</p><div class="tag-list"><span>Canvas</span><span>JavaScript</span><span>Game</span></div></div>
-            </article>
-            <article class="project-card" data-category="web-projects">
-              <a class="project-visual visual-web" href="./projects/web-projects/" aria-label="前往 Web Projects 專案">
-                <span class="visual-kicker">DIGITAL / 04</span><span class="web-window"><span class="web-side"><b>KU.</b><i></i><i></i><i></i></span><span class="web-content"><small>DESIGN THAT WORKS</small><b>Less noise.<br>More meaning.</b><i></i></span></span><span class="visual-index">WP — 004</span>
-              </a>
-              <div class="project-info"><div class="project-title-line"><div><p class="project-category">WEB PROJECTS</p><h3>Web Projects</h3></div><a class="project-arrow" href="./projects/web-projects/" aria-label="查看 Web Projects">↗</a></div><p class="project-description">網站、介面與前端練習。把清楚的設計，變成好用的數位體驗。</p><div class="tag-list"><span>HTML</span><span>CSS</span><span>Responsive</span></div></div>
-            </article>
-          </div>
-          <p class="filter-empty" hidden>這個分類目前沒有專案。</p>
+          <div class="filter-bar" id="category-filters" role="group" aria-label="依分類篩選專案"></div>
+          <p class="project-results-count" id="project-results-count" aria-live="polite"></p>
+          <div class="project-grid" id="project-grid" aria-live="polite"></div>
+          <p class="filter-empty" id="filter-empty" hidden>找不到符合條件的專案，請調整搜尋或篩選條件。</p>
         </div>
       </section>
 
       <section class="about-section page-shell" id="about" aria-labelledby="about-title">
-        <div class="about-index"><p class="eyebrow">02 / A LITTLE ABOUT ME</p><span>靈感來自<br>保持好奇。</span><div class="about-stamp">STAY<br>CURIOUS<span>✳</span></div></div>
-        <div class="about-copy"><h2 id="about-title">你好，我是 KU<span class="heading-period">.</span></h2><p class="about-lead">我相信好的作品，來自好的問題。</p><p class="about-description">我喜歡在設計與技術的交界動手實驗，從一個小小的想法開始，慢慢把它做成真實可用的東西。這個網站就是我的數位工作台，記錄每次嘗試、學習與下一步。</p><a class="text-link" href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">在 GitHub 上找到我 <span aria-hidden="true">↗</span></a></div>
+        <div class="about-index"><p class="eyebrow">02 / ABOUT KU HUB</p><span>想法從這裡<br>開始成形。</span><div class="about-stamp" aria-hidden="true">IDEAS<br>IN MOTION<span>✳</span></div></div>
+        <div class="about-copy"><h2 id="about-title">讓專案被看見<span class="heading-period">.</span></h2><p class="about-lead">一個持續更新的技術專案入口。</p><p class="about-description">KU HUB 集中整理正在實現與持續維護的專案。每張卡片的分類、狀態、技術及連結都由 JSON 資料產生；資訊尚未確認時會明確標示待補。</p><a class="text-link" href="https://github.com/qsc556633123321-stack" target="_blank" rel="noopener noreferrer">瀏覽 GitHub 公開專案 <span aria-hidden="true">↗</span></a></div>
       </section>
-
-      <section class="skills-section" id="skills" aria-labelledby="skills-title">
-        <div class="page-shell skills-inner"><div class="skills-heading"><p class="eyebrow">03 / THE TOOLKIT</p><h2 id="skills-title">技能與工具<span class="heading-period">.</span></h2><p>持續累積，持續打磨。</p></div><div class="skill-groups"><div class="skill-group"><span class="skill-number">01</span><div><h3>前端開發</h3><p>HTML & CSS <span>／</span> JavaScript <span>／</span> React <span>／</span> Responsive Design</p></div></div><div class="skill-group"><span class="skill-number">02</span><div><h3>設計與體驗</h3><p>UI Design <span>／</span> UX Thinking <span>／</span> Prototyping <span>／</span> Figma</p></div></div><div class="skill-group"><span class="skill-number">03</span><div><h3>日常工具</h3><p>Git & GitHub <span>／</span> VS Code <span>／</span> AI-assisted Workflow</p></div></div></div></div>
-      </section>
-
-      <section class="contact-section page-shell" id="contact" aria-labelledby="contact-title"><p class="eyebrow">04 / SAY HELLO</p><div class="contact-row"><h2 id="contact-title">一起做點<br><span>有趣的事吧。</span></h2><a class="contact-link" href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 上聯絡 KU">GitHub <span>↗</span></a></div></section>
     </main>
 
-    <footer class="site-footer"><div class="page-shell footer-inner"><a class="brand" href="./"><span class="brand-mark">K<span>U</span></span><span class="brand-name">KU HUB</span></a><p>用好奇心開發，用作品持續對話。</p><span class="footer-copy">© 2026 KU HUB</span></div></footer>
+    <footer class="site-footer"><div class="page-shell footer-inner"><a class="brand" href="./"><span class="brand-mark">K<span>U</span></span><span class="brand-name">KU HUB</span></a><p>把想法變成真正能運作的系統。</p><span class="footer-copy">GitHub Pages · V1.1</span></div></footer>
   </body>
 </html>
