@@ -1,100 +1,4 @@
-const PROJECTS_URL = new URL("../data/projects.json", import.meta.url);
-const PROJECT_STATUSES = ["正式上線", "開發中", "測試中", "已完成", "暫停開發", "資料待補"];
-const CATEGORY_NAMES = {
-  "Web App": "Web App",
-  "AI Tools": "AI Tools",
-  "Game Development": "Game Development",
-  Automation: "Automation",
-  Bot: "Bot",
-  Other: "Other",
-};
-
-function isNonEmptyString(value) {
-  return typeof value === "string" && value.trim().length > 0;
-}
-
-function normalizeProject(project) {
-  if (!project || !isNonEmptyString(project.id) || !isNonEmptyString(project.name)) {
-    return null;
-  }
-
-  const projectId = project.id.trim();
-  const technologies = Array.isArray(project.technologies)
-    ? project.technologies.filter(isNonEmptyString).map((technology) => technology.trim())
-    : [];
-  const parsedDate = isNonEmptyString(project.lastUpdated) && /^\d{4}-\d{2}-\d{2}$/.test(project.lastUpdated)
-    ? Date.parse(`${project.lastUpdated}T00:00:00Z`)
-    : Number.NaN;
-  const date = !Number.isNaN(parsedDate) && new Date(parsedDate).toISOString().slice(0, 10) === project.lastUpdated
-    ? project.lastUpdated
-    : "";
-
-  function readUrl(value, field) {
-    if (!isNonEmptyString(value)) return "";
-    const url = safeExternalUrl(value);
-    if (!url) console.warn(`Ignoring invalid ${field} URL for project "${projectId}".`);
-    return url;
-  }
-
-  return {
-    id: projectId,
-    name: project.name.trim(),
-    category: Object.hasOwn(CATEGORY_NAMES, project.category) ? project.category : "Other",
-    description: isNonEmptyString(project.description) ? project.description.trim() : "",
-    longDescription: isNonEmptyString(project.longDescription) ? project.longDescription.trim() : "",
-    version: isNonEmptyString(project.version) ? project.version.trim() : "版本未提供",
-    status: PROJECT_STATUSES.includes(project.status) ? project.status : "資料待補",
-    technologies,
-    image: readUrl(project.image, "image"),
-    github: readUrl(project.github, "GitHub"),
-    demo: readUrl(project.demo, "demo"),
-    featured: project.featured === true,
-    lastUpdated: date,
-  };
-}
-
-export function safeExternalUrl(value) {
-  if (!isNonEmptyString(value)) return "";
-
-  try {
-    const url = new URL(value.trim());
-    if (url.protocol !== "https:" || url.username || url.password) return "";
-    return url.href;
-  } catch {
-    return "";
-  }
-}
-
-export async function fetchProjects() {
-  const response = await fetch(PROJECTS_URL);
-  if (!response.ok) {
-    throw new Error(`專案資料讀取失敗（HTTP ${response.status}）`);
-  }
-
-  const data = await response.json();
-  if (!Array.isArray(data)) {
-    throw new Error("專案資料格式錯誤：預期為 JSON 陣列。");
-  }
-
-  const projects = [];
-  let invalidEntries = 0;
-  data.forEach((entry) => {
-    const project = normalizeProject(entry);
-    if (project) projects.push(project);
-    else invalidEntries += 1;
-  });
-  if (invalidEntries) {
-    console.warn(`Skipped ${invalidEntries} invalid project entr${invalidEntries === 1 ? "y" : "ies"}.`);
-  }
-  return projects;
-}
-
-function createElement(tagName, className, text) {
-  const element = document.createElement(tagName);
-  if (className) element.className = className;
-  if (text !== undefined) element.textContent = text;
-  return element;
-}
+import { CATEGORY_NAMES, createElement, createProjectCover, fetchProjects } from "./project-data.js?v=1c1584543030a885";
 
 function appendExternalLink(container, label, href) {
   if (!href) return;
@@ -112,9 +16,7 @@ function createProjectCard(project) {
   const visual = createElement("a", "project-visual");
   visual.href = `./project.html?id=${encodeURIComponent(project.id)}`;
   visual.setAttribute("aria-label", `查看 ${project.name} 專案介紹`);
-  const fallback = createElement("span", "visual-fallback", project.name.slice(0, 2).toUpperCase());
-  fallback.setAttribute("aria-hidden", "true");
-  visual.append(fallback);
+  visual.append(createProjectCover(project));
 
   if (project.image) {
     const image = document.createElement("img");
@@ -154,13 +56,16 @@ function createProjectCard(project) {
   status.dataset.status = project.status;
   meta.append(status, createElement("span", "project-version", project.version));
   if (project.lastUpdated) {
-    meta.append(createElement("time", "project-date", `更新於 ${project.lastUpdated}`));
+    const updated = createElement("time", "project-date", `更新於 ${project.lastUpdated}`);
+    updated.dateTime = project.lastUpdated;
+    meta.append(updated);
   }
 
   const actions = createElement("div", "project-actions");
-  appendExternalLink(actions, "GitHub ↗", project.github);
-  appendExternalLink(actions, project.status === "正式上線" ? "進入正式系統 ↗" : "Demo ↗", project.demo);
-  if (!project.github && !project.demo) {
+  appendExternalLink(actions, "GitHub", project.github);
+  appendExternalLink(actions, "正式產品入口", project.production);
+  appendExternalLink(actions, "線上 Demo", project.demo);
+  if (!project.github && !project.demo && !project.production) {
     actions.append(createElement("span", "link-pending", "公開連結待確認"));
   }
 
@@ -180,6 +85,7 @@ function initProjectList() {
   const search = document.querySelector("#project-search");
   const statusFilter = document.querySelector("#status-filter");
   const sort = document.querySelector("#project-sort");
+  const controls = [search, statusFilter, sort];
   const resultCount = document.querySelector("#project-results-count");
   const emptyMessage = document.querySelector("#filter-empty");
   let projects = [];
@@ -207,7 +113,6 @@ function initProjectList() {
     [...categoryCounts.keys()].sort((a, b) => a.localeCompare(b)).forEach((category) => {
       categoryFilters.append(createCategoryButton(category, categoryCounts.get(category), CATEGORY_NAMES[category]));
     });
-
   }
 
   function renderProjects() {
@@ -219,6 +124,9 @@ function initProjectList() {
         project.description,
         project.longDescription,
         project.category,
+        project.domain,
+        project.type,
+        ...project.features,
         ...project.technologies,
       ].join(" ").toLocaleLowerCase();
       return (selectedCategory === "all" || project.category === selectedCategory)
@@ -248,15 +156,17 @@ function initProjectList() {
     });
   }
 
-  [search, statusFilter, sort].forEach((control) => {
+  controls.forEach((control) => {
+    control.disabled = true;
     control.addEventListener(control === search ? "input" : "change", renderProjects);
   });
 
   fetchProjects().then((loadedProjects) => {
     projects = loadedProjects;
+    controls.forEach((control) => { control.disabled = projects.length === 0; });
+    renderOverview(projects);
     const featuredProjects = projects.filter((project) => project.featured);
     document.querySelector("#project-total").textContent = String(projects.length);
-    document.querySelector("#domain-total").textContent = String(new Set(projects.map((project) => project.category)).size);
     document.querySelector("#featured-total").textContent = String(featuredProjects.length);
     featuredSection.hidden = featuredProjects.length === 0;
     featuredGrid.replaceChildren(...featuredProjects.map(createProjectCard));
@@ -265,11 +175,82 @@ function initProjectList() {
     renderProjects();
   }).catch((error) => {
     console.error("KU HUB 專案資料載入失敗：", error);
+    for (const id of ["live", "ecosystem", "labs", "updates"]) {
+      document.querySelector(`#${id}-state`).textContent = "無法載入專案資料。";
+    }
     loadState.textContent = "無法載入專案資料，請確認網路連線或稍後重試。";
     resultCount.textContent = "";
     grid.replaceChildren();
     featuredSection.hidden = true;
   });
+}
+
+function renderOverview(projects) {
+  const live = projects.filter((project) => project.developmentStage === "production" && project.production);
+  document.querySelector("#live-total").textContent = String(live.length);
+  document.querySelector("#live-grid").replaceChildren(...live.map(createProjectCard));
+  document.querySelector("#live-state").textContent = live.length ? "" : "目前沒有已確認的正式產品。";
+
+  const domains = new Map();
+  for (const project of projects) {
+    if (!domains.has(project.domain)) domains.set(project.domain, []);
+    domains.get(project.domain).push(project);
+  }
+  document.querySelector("#domain-total").textContent = String(domains.size);
+  const domainCards = [...domains].sort(([a], [b]) => a.localeCompare(b, "zh-Hant")).map(([domain, entries]) => {
+    const card = createElement("article", "ecosystem-card");
+    const links = createElement("ul", "ecosystem-projects");
+    for (const project of entries) {
+      const item = createElement("li");
+      const link = createElement("a", "text-link", project.name);
+      link.href = `./project.html?id=${encodeURIComponent(project.id)}`;
+      item.append(link);
+      links.append(item);
+    }
+    card.append(createElement("h3", "", domain), links);
+    return card;
+  });
+  document.querySelector("#ecosystem-grid").replaceChildren(...domainCards);
+  document.querySelector("#ecosystem-state").textContent = domainCards.length ? "" : "目前沒有技術領域資料。";
+
+  const labs = projects.filter((project) => project.labs);
+  document.querySelector("#labs-grid").replaceChildren(...labs.map((project) => {
+    const card = createElement("article", "bento-card");
+    const content = createElement("div", "bento-content");
+    const link = createElement("a", "text-link", "查看實驗項目");
+    link.setAttribute("aria-label", `查看 ${project.name} 實驗項目`);
+    link.href = `./project.html?id=${encodeURIComponent(project.id)}`;
+    content.append(createElement("h3", "", project.name));
+    if (project.description) content.append(createElement("p", "", project.description));
+    content.append(link);
+    card.append(content);
+    return card;
+  }));
+  document.querySelector("#labs-state").textContent = labs.length ? "" : "目前沒有公開的實驗項目。";
+
+  const updates = projects.flatMap((project) => {
+    const releases = project.changelog.filter((entry) => entry.date).map((entry) => ({
+      ...entry,
+      label: entry.version || "更新紀錄",
+      project,
+    }));
+    if (project.lastUpdated && !releases.some(({ date }) => date === project.lastUpdated)) {
+      releases.push({ date: project.lastUpdated, label: "專案資料更新", project });
+    }
+    return releases;
+  }).sort((a, b) => b.date.localeCompare(a.date));
+  document.querySelector("#updates-list").replaceChildren(...updates.slice(0, 6).map(({ date, label, project, description }) => {
+    const item = createElement("li", "update-item");
+    const time = createElement("time", "", date);
+    time.dateTime = date;
+    const link = createElement("a", "", project.name);
+    link.href = `./project.html?id=${encodeURIComponent(project.id)}`;
+    const body = createElement("div");
+    body.append(link, createElement("p", "", description ? `${label} · ${description}` : label));
+    item.append(time, body);
+    return item;
+  }));
+  document.querySelector("#updates-state").textContent = updates.length ? "" : "目前沒有附日期的更新紀錄。";
 }
 
 initProjectList();

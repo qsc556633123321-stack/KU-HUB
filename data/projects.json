@@ -1,129 +1,297 @@
 [
-    {
-        "id":  "eventflow",
-        "name":  "EventFlow",
-        "category":  "Web App",
-        "description":  "活動報名與營運管理平台，整合活動建立、線上報名、名額管理及現場簽到。",
-        "longDescription":  "EventFlow 是以 Node.js、Express 與 SQLite 建置的活動報名及營運管理平台，支援活動建立、線上報名、帳號權限、QR Code 憑證及現場簽到。目前 V2.9.0 已部署至 KUHUB 伺服器，採用 Docker 容器化、持久化資料儲存、Cloudflare HTTPS 與 GitHub 自動部署架構，開放線上展示與測試。",
-        "version":  "V2.9.0",
-        "status":  "正式上線",
-        "technologies":  [
-                             "Node.js",
-                             "Express",
-                             "SQLite",
-                             "Docker",
-                             "Cloudflare",
-                             "CI/CD"
-                         ],
-        "image":  "",
-        "github":  "https://github.com/qsc556633123321-stack/EventFlow",
-        "demo":  "https://eventflow.kuhub.net",
-        "featured":  true,
-        "lastUpdated":  "2026-11-25"
+  {
+    "id": "eventflow",
+    "name": "EventFlow",
+    "category": "Web App",
+    "description": "活動報名與營運管理平台，整合活動建立、線上報名、名額管理及現場簽到。",
+    "longDescription": "EventFlow 是以 Node.js、Express 與 SQLite 建置的活動報名及營運管理平台，支援活動建立、線上報名、帳號權限、QR Code 憑證及現場簽到。目前 V2.9.0 已部署至 KUHUB 伺服器，採用 Docker 容器化、持久化資料儲存、Cloudflare HTTPS 與 GitHub 自動部署架構，開放線上展示與測試。",
+    "version": "V2.9.0",
+    "status": "正式上線",
+    "technologies": [
+      "Node.js",
+      "Express",
+      "SQLite",
+      "Docker",
+      "Cloudflare",
+      "CI/CD"
+    ],
+    "image": "",
+    "github": "https://github.com/qsc556633123321-stack/EventFlow",
+    "demo": "https://eventflow.kuhub.net",
+    "featured": true,
+    "lastUpdated": "2026-11-25",
+    "type": "網路產品",
+    "domain": "網路平台",
+    "visibility": "public",
+    "sourceVisibility": "public",
+    "developmentStage": "production",
+    "links": {
+      "github": "https://github.com/qsc556633123321-stack/EventFlow",
+      "production": "https://eventflow.kuhub.net"
     },
-    {
-        "id":  "online-rpg",
-        "name":  "Online RPG",
-        "category":  "Game Development",
-        "description":  "多人線上角色扮演遊戲。",
-        "longDescription":  "多人線上角色扮演遊戲專案。尚未在 GitHub 帳號的公開 Repository 中找到可確認的對應專案，技術組合、版本、進度及連結待補。",
-        "version":  "版本未提供",
-        "status":  "資料待補",
-        "technologies":  [
-
-                         ],
-        "image":  "",
-        "github":  "",
-        "demo":  "",
-        "featured":  false,
-        "lastUpdated":  ""
+    "highlights": [
+      "正式環境 V2.9.0",
+      "涵蓋線上報名與現場簽到"
+    ],
+    "features": [
+      "活動建立與名額管理",
+      "線上報名與候補",
+      "帳號權限管理",
+      "QR Code 憑證與現場簽到"
+    ],
+    "architecture": "Node.js 與 Express 提供活動管理與報名服務，SQLite 儲存活動及報名資料。正式環境採用 Docker 容器化部署與持久化儲存。",
+    "changelog": [
+      {
+        "version": "V2.9.0",
+        "date": "2026-10-28",
+        "description": "新增獨立活動詳情及四步報名流程，改善額滿與候補判斷、QR 憑證顯示與管理稽核。"
+      }
+    ]
+  },
+  {
+    "id": "online-rpg",
+    "name": "Online RPG",
+    "category": "Game Development",
+    "description": "多人線上角色扮演遊戲。",
+    "longDescription": "多人線上角色扮演遊戲專案。尚未在 GitHub 帳號的公開 Repository 中找到可確認的對應專案，技術組合、版本、進度及連結待補。",
+    "version": "版本未提供",
+    "status": "資料待補",
+    "technologies": [],
+    "image": "",
+    "github": "",
+    "demo": "",
+    "featured": false,
+    "lastUpdated": "",
+    "type": "遊戲",
+    "domain": "遊戲開發",
+    "visibility": "public",
+    "sourceVisibility": "unconfirmed",
+    "developmentStage": "unconfirmed",
+    "labs": true
+  },
+  {
+    "id": "discord-music-bot",
+    "name": "Discord Music Bot",
+    "category": "Bot",
+    "description": "中文 Discord 音樂機器人，支援 YouTube 播放與 queue。",
+    "longDescription": "以 discord.py、yt-dlp 與 FFmpeg 播放 YouTube 音訊的中文 Discord 音樂機器人。公開 Repository 文件列出搜尋播放、伺服器獨立播放佇列及常用播放控制指令；版本與目前開發狀態未提供。",
+    "version": "版本未提供",
+    "status": "資料待補",
+    "technologies": [
+      "Python",
+      "discord.py",
+      "yt-dlp",
+      "FFmpeg"
+    ],
+    "image": "",
+    "github": "https://github.com/qsc556633123321-stack/DiscordMusicBot",
+    "demo": "",
+    "featured": true,
+    "lastUpdated": "2026-05-08",
+    "type": "社群工具",
+    "domain": "社群自動化",
+    "visibility": "public",
+    "sourceVisibility": "public",
+    "developmentStage": "unconfirmed",
+    "links": {
+      "github": "https://github.com/qsc556633123321-stack/DiscordMusicBot"
     },
-    {
-        "id":  "discord-music-bot",
-        "name":  "Discord Music Bot",
-        "category":  "Bot",
-        "description":  "中文 Discord 音樂機器人，支援 YouTube 播放與 queue。",
-        "longDescription":  "以 discord.py、yt-dlp 與 FFmpeg 播放 YouTube 音訊的中文 Discord 音樂機器人。公開 Repository 文件列出搜尋播放、伺服器獨立播放佇列及常用播放控制指令；版本與目前開發狀態未提供。",
-        "version":  "版本未提供",
-        "status":  "資料待補",
-        "technologies":  [
-                             "Python",
-                             "discord.py",
-                             "yt-dlp",
-                             "FFmpeg"
-                         ],
-        "image":  "",
-        "github":  "https://github.com/qsc556633123321-stack/DiscordMusicBot",
-        "demo":  "",
-        "featured":  true,
-        "lastUpdated":  "2026-05-08"
+    "features": [
+      "搜尋並播放 YouTube 音訊",
+      "伺服器獨立播放佇列",
+      "常用播放控制指令"
+    ]
+  },
+  {
+    "id": "field-dispatch-assistant",
+    "name": "AI 外勤跑單助手",
+    "category": "Automation",
+    "description": "智慧派工及路線規劃工具。",
+    "longDescription": "智慧派工及路線規劃工具。尚未在 GitHub 帳號的公開 Repository 中找到可確認的對應專案，技術組合、版本、進度及連結待補。",
+    "version": "版本未提供",
+    "status": "資料待補",
+    "technologies": [],
+    "image": "",
+    "github": "",
+    "demo": "",
+    "featured": false,
+    "lastUpdated": "",
+    "type": "AI 應用",
+    "domain": "AI 與工作流程",
+    "visibility": "public",
+    "sourceVisibility": "unconfirmed",
+    "developmentStage": "unconfirmed",
+    "labs": true
+  },
+  {
+    "id": "multi-llm-router",
+    "name": "Multi-LLM Router",
+    "category": "AI Tools",
+    "description": "多模型整合系統。",
+    "longDescription": "多模型整合系統。尚未在 GitHub 帳號的公開 Repository 中找到可確認的對應專案，技術組合、版本、進度及連結待補。",
+    "version": "版本未提供",
+    "status": "資料待補",
+    "technologies": [],
+    "image": "",
+    "github": "",
+    "demo": "",
+    "featured": false,
+    "lastUpdated": "",
+    "type": "AI 應用",
+    "domain": "AI 與工作流程",
+    "visibility": "public",
+    "sourceVisibility": "unconfirmed",
+    "developmentStage": "unconfirmed",
+    "labs": true
+  },
+  {
+    "id": "tw-stock-dashboard",
+    "name": "股票看盤面板",
+    "category": "Web App",
+    "description": "台股看盤、個股分析與衍生商品摘要面板，目前定位為本機 Alpha 測試版。",
+    "longDescription": "tw-stock-dashboard 是本機小規模測試版 Alpha，包含台股 dashboard、個股分析、期貨與選擇權摘要、Discord webhook 與本地警報設定。專案文件指出外部資料可能不穩定，且 AI／決策建議不構成投資建議。",
+    "version": "Alpha",
+    "status": "測試中",
+    "technologies": [
+      "JavaScript"
+    ],
+    "image": "",
+    "github": "https://github.com/qsc556633123321-stack/tw-stock-dashboard",
+    "demo": "",
+    "featured": true,
+    "lastUpdated": "2026-05-17",
+    "type": "數位工具",
+    "domain": "資料工具",
+    "visibility": "public",
+    "sourceVisibility": "public",
+    "developmentStage": "alpha",
+    "links": {
+      "github": "https://github.com/qsc556633123321-stack/tw-stock-dashboard"
     },
-    {
-        "id":  "field-dispatch-assistant",
-        "name":  "AI 外勤跑單助手",
-        "category":  "Automation",
-        "description":  "智慧派工及路線規劃工具。",
-        "longDescription":  "智慧派工及路線規劃工具。尚未在 GitHub 帳號的公開 Repository 中找到可確認的對應專案，技術組合、版本、進度及連結待補。",
-        "version":  "版本未提供",
-        "status":  "資料待補",
-        "technologies":  [
-
-                         ],
-        "image":  "",
-        "github":  "",
-        "demo":  "",
-        "featured":  false,
-        "lastUpdated":  ""
-    },
-    {
-        "id":  "multi-llm-router",
-        "name":  "Multi-LLM Router",
-        "category":  "AI Tools",
-        "description":  "多模型整合系統。",
-        "longDescription":  "多模型整合系統。尚未在 GitHub 帳號的公開 Repository 中找到可確認的對應專案，技術組合、版本、進度及連結待補。",
-        "version":  "版本未提供",
-        "status":  "資料待補",
-        "technologies":  [
-
-                         ],
-        "image":  "",
-        "github":  "",
-        "demo":  "",
-        "featured":  false,
-        "lastUpdated":  ""
-    },
-    {
-        "id":  "tw-stock-dashboard",
-        "name":  "股票看盤面板",
-        "category":  "Web App",
-        "description":  "台股看盤、個股分析與衍生商品摘要面板，目前定位為本機 Alpha 測試版。",
-        "longDescription":  "tw-stock-dashboard 是本機小規模測試版 Alpha，包含台股 dashboard、個股分析、期貨與選擇權摘要、Discord webhook 與本地警報設定。專案文件指出外部資料可能不穩定，且 AI／決策建議不構成投資建議。",
-        "version":  "Alpha",
-        "status":  "測試中",
-        "technologies":  [
-                             "JavaScript"
-                         ],
-        "image":  "",
-        "github":  "https://github.com/qsc556633123321-stack/tw-stock-dashboard",
-        "demo":  "",
-        "featured":  true,
-        "lastUpdated":  "2026-05-17"
-    },
-    {
-        "id":  "unity-idle-rpg",
-        "name":  "Unity Idle RPG",
-        "category":  "Game Development",
-        "description":  "Unity 遊戲專案。",
-        "longDescription":  "Unity 遊戲專案。尚未在 GitHub 帳號的公開 Repository 中找到可確認的對應專案，技術細節、版本、進度及連結待補。",
-        "version":  "版本未提供",
-        "status":  "資料待補",
-        "technologies":  [
-
-                         ],
-        "image":  "",
-        "github":  "",
-        "demo":  "",
-        "featured":  false,
-        "lastUpdated":  ""
+    "features": [
+      "台股看盤與個股分析",
+      "期貨與選擇權摘要",
+      "Discord 提醒與本地警報設定"
+    ]
+  },
+  {
+    "id": "unity-idle-rpg",
+    "name": "Unity Idle RPG",
+    "category": "Game Development",
+    "description": "Unity 遊戲專案。",
+    "longDescription": "Unity 遊戲專案。尚未在 GitHub 帳號的公開 Repository 中找到可確認的對應專案，技術細節、版本、進度及連結待補。",
+    "version": "版本未提供",
+    "status": "資料待補",
+    "technologies": [],
+    "image": "",
+    "github": "",
+    "demo": "",
+    "featured": false,
+    "lastUpdated": "",
+    "type": "遊戲",
+    "domain": "遊戲開發",
+    "visibility": "public",
+    "sourceVisibility": "unconfirmed",
+    "developmentStage": "unconfirmed",
+    "labs": true
+  },
+  {
+    "id": "discord-auto-bot",
+    "name": "DiscordAutoBot",
+    "category": "Bot",
+    "description": "以 Discord.js 建置的社群管理機器人，涵蓋社群、遊戲與語音等指令群組。",
+    "longDescription": "公開文件以 Discord Community OS Bot 說明這個模組化的 Discord 社群管理專案。",
+    "version": "版本未提供",
+    "status": "資料待補",
+    "technologies": [
+      "JavaScript",
+      "Discord.js v14"
+    ],
+    "image": "",
+    "github": "https://github.com/qsc556633123321-stack/DiscordAutoBot",
+    "demo": "",
+    "featured": false,
+    "lastUpdated": "2026-10-25",
+    "type": "社群工具",
+    "domain": "社群自動化",
+    "visibility": "public",
+    "sourceVisibility": "public",
+    "developmentStage": "unconfirmed",
+    "features": [
+      "社群、遊戲與語音指令群組",
+      "統一指令路由",
+      "保留舊指令別名"
+    ],
+    "architecture": "Discord.js v14 機器人透過指令路由器分派指令群組，既有斜線指令仍可透過別名相容。",
+    "links": {
+      "github": "https://github.com/qsc556633123321-stack/DiscordAutoBot"
     }
+  },
+  {
+    "id": "auto-quest-translate-translations",
+    "name": "AutoQuestTranslate-Translations",
+    "category": "Other",
+    "description": "公開的繁體中文翻譯字典資料庫，收錄 Create 與 Productive Farming 詞條。",
+    "longDescription": "此 Repository 保存供 AutoQuestTranslate 使用的翻譯資料。清單以 zh_tw 標示語言，並列出各字典的識別碼與檔案路徑。",
+    "version": "版本未提供",
+    "status": "資料待補",
+    "technologies": [
+      "JSON"
+    ],
+    "image": "",
+    "github": "https://github.com/qsc556633123321-stack/AutoQuestTranslate-Translations",
+    "demo": "",
+    "featured": false,
+    "lastUpdated": "2026-06-07",
+    "type": "翻譯資源",
+    "domain": "遊戲開發",
+    "visibility": "public",
+    "sourceVisibility": "public",
+    "developmentStage": "unconfirmed",
+    "features": [
+      "Create 繁體中文翻譯字典",
+      "Productive Farming 繁體中文翻譯字典"
+    ],
+    "architecture": "JSON 清單管理語言、資料結構版本與字典索引，各模組的詞條儲存在獨立字典檔。",
+    "links": {
+      "github": "https://github.com/qsc556633123321-stack/AutoQuestTranslate-Translations"
+    }
+  },
+  {
+    "id": "kuhub",
+    "name": "KUHUB",
+    "category": "Web App",
+    "description": "KU HUB 品牌與技術專案入口，集中呈現數位產品、工具、AI 應用與實驗紀錄。",
+    "longDescription": "正式站目前所列版本為 V2.0。專案檔案庫與詳情頁由同一份公開資料提供，並支援分享個別專案連結。",
+    "version": "V2.0",
+    "status": "正式上線",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "JSON",
+      "Nginx",
+      "Coolify"
+    ],
+    "image": "",
+    "github": "https://github.com/qsc556633123321-stack/KU-HUB",
+    "demo": "https://kuhub.net/",
+    "featured": false,
+    "lastUpdated": "2026-11-25",
+    "type": "網路產品",
+    "domain": "網路平台",
+    "visibility": "public",
+    "sourceVisibility": "public",
+    "developmentStage": "production",
+    "features": [
+      "公開專案檔案庫",
+      "專案搜尋、分類及排序",
+      "可直接分享的專案詳情網址"
+    ],
+    "architecture": "瀏覽器以原生 JavaScript 載入靜態 JSON。GitHub Webhook 觸發 Coolify 部署，由 Nginx 提供靜態資源。",
+    "links": {
+      "github": "https://github.com/qsc556633123321-stack/KU-HUB",
+      "production": "https://kuhub.net/"
+    }
+  }
 ]
