@@ -75,6 +75,11 @@ function renderProject(project, container) {
   body.append(description, info);
 
   container.append(heading, visual, body);
+  const canonical = document.querySelector('link[rel="canonical"]');
+  const projectUrl = new URL(canonical.href);
+  projectUrl.searchParams.set("id", project.id);
+  canonical.href = projectUrl.href;
+  document.querySelector('meta[property="og:url"]').content = projectUrl.href;
   document.title = `${project.name} — KU HUB`;
   document.querySelector('meta[name="description"]').content = project.description || "KU HUB 專案詳細介紹。";
   document.querySelector('meta[property="og:title"]').content = `${project.name} — KU HUB`;

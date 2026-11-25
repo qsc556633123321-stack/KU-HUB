@@ -200,8 +200,7 @@ function initProjectList() {
     return button;
   }
 
-  function renderProjects() {
-    categoryFilters.replaceChildren();
+  function renderCategoryButtons() {
     const categoryCounts = new Map();
     projects.forEach((project) => categoryCounts.set(project.category, (categoryCounts.get(project.category) || 0) + 1));
     categoryFilters.append(createCategoryButton("all", projects.length, "全部"));
@@ -209,6 +208,9 @@ function initProjectList() {
       categoryFilters.append(createCategoryButton(category, categoryCounts.get(category), CATEGORY_NAMES[category]));
     });
 
+  }
+
+  function renderProjects() {
     const query = search.value.trim().toLocaleLowerCase();
     const status = statusFilter.value;
     const matchingProjects = projects.filter((project) => {
@@ -259,6 +261,7 @@ function initProjectList() {
     featuredSection.hidden = featuredProjects.length === 0;
     featuredGrid.replaceChildren(...featuredProjects.map(createProjectCard));
     loadState.textContent = projects.length ? "" : "目前沒有專案資料。";
+    renderCategoryButtons();
     renderProjects();
   }).catch((error) => {
     console.error("KU HUB 專案資料載入失敗：", error);

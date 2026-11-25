@@ -3,98 +3,144 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f7f4ec">
-    <meta name="description" content="KU HUB — 探索 Web 開發、AI 自動化、遊戲設計與各種正在實現的技術專案。">
+    <meta name="theme-color" content="#0a0b10">
+    <meta name="description" content="探索 KU HUB 的數位產品、工具、AI 應用及技術實驗。">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="KU HUB">
-    <meta property="og:title" content="KU HUB — 把想法變成真正能運作的系統">
-    <meta property="og:description" content="探索 Web 開發、AI 自動化、遊戲設計與各種正在實現的技術專案。">
-    <meta property="og:url" content="https://qsc556633123321-stack.github.io/KU-HUB/">
-    <link rel="canonical" href="https://qsc556633123321-stack.github.io/KU-HUB/">
+    <meta property="og:title" content="KU HUB — 獨立科技品牌與數位平台">
+    <meta property="og:description" content="探索 KU HUB 的數位產品、工具、AI 應用及技術實驗。">
+    <meta property="og:url" content="https://kuhub.net/">
+    <link rel="canonical" href="https://kuhub.net/">
     <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
-    <title>KU HUB - Deploy Test</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
-    <script type="module" src="./js/projects.js"></script>
+    <script src="./js/projects.js" type="module"></script>
+    <title>KU HUB — 獨立科技品牌與數位平台</title>
   </head>
-  <body> 
+  <body>
     <a class="skip-link" href="#main">跳至主要內容</a>
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="./" aria-label="KU HUB 首頁"><span class="brand-mark">K<span>U</span></span><span class="brand-name">KU HUB</span></a>
-        <button class="menu-toggle" type="button" aria-label="開啟導覽選單" aria-expanded="false" aria-controls="site-nav">
-          <span></span><span></span>
-        </button>
+        <a class="brand" href="./" aria-label="KU HUB 首頁"><img src="./assets/icons/favicon.svg" width="36" height="36" alt=""><span>KU HUB</span></a>
+        <button class="menu-toggle" type="button" aria-label="開啟導覽選單" aria-expanded="false" aria-controls="site-nav" hidden><span></span><span></span></button>
         <nav class="site-nav" id="site-nav" aria-label="主要導覽">
-          <a href="#projects">專案</a>
+          <a href="#products">產品</a>
+          <a href="#tools">數位工具</a>
+          <a href="#ai">AI 應用</a>
+          <a href="#lab">實驗室</a>
           <a href="#about">關於</a>
-          <a class="nav-contact" href="https://github.com/qsc556633123321-stack" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="#contact">聯絡</a>
         </nav>
       </div>
     </header>
-
     <main id="main">
-      <section class="hero page-shell" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="status-dot"></span> KU HUB / PROJECT ARCHIVE</p>
-          <h1 id="hero-title">KU HUB —<br><span>把想法變成真正能運作的系統。</span></h1>
-          <p class="hero-description">探索 Web 開發、AI 自動化、遊戲設計與各種正在實現的技術專案。</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#projects">探索專案 <span aria-hidden="true">↓</span></a>
-            <a class="text-link" href="https://github.com/qsc556633123321-stack" target="_blank" rel="noopener noreferrer">GitHub 個人頁面 <span aria-hidden="true">↗</span></a>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-scene" aria-hidden="true"><canvas id="brand-field"></canvas></div>
+        <div class="page-shell hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow">KU HUB <span class="version">V2.0</span></p>
+            <h1 id="hero-title">讓想法成為<br><em>可用的系統。</em></h1>
+            <p class="hero-description">KU HUB 是一個獨立科技品牌，探索數位工具、AI 工作流程與可持續維護的網路產品。</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#products">探索產品方向</a>
+              <a class="button" href="#lab">進入實驗室</a>
+            </div>
           </div>
-          <div class="hero-meta"><span>資料來源</span><strong>PROJECTS.JSON</strong><span class="meta-line"></span><span>持續更新</span></div>
         </div>
-        <div class="hero-art" role="img" aria-label="KU HUB 數位工作台視覺">
-          <div class="art-grid"></div>
-          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-          <div class="art-cross cross-one" aria-hidden="true">+</div><div class="art-cross cross-two" aria-hidden="true">+</div>
-          <div class="art-label label-top">KU / PROJECT ARCHIVE</div>
-          <div class="art-core"><span class="core-ring"></span><span class="core-word">KU<br><i>HUB</i></span><span class="core-index">V1.1 — 001</span></div>
-          <div class="art-label label-bottom"><span>IDEAS IN MOTION</span><span>● LIVE</span></div>
-          <div class="art-coordinate">STATIC<br>PORTFOLIO</div>
-        </div>
-        <a class="scroll-cue" href="#projects"><span></span>往下探索</a>
       </section>
 
-      <section class="stats-section page-shell" aria-label="專案統計">
-        <div class="stat-item"><strong id="project-total">—</strong><span>個專案</span></div>
-        <div class="stat-item"><strong id="domain-total">—</strong><span>個技術領域</span></div>
-        <div class="stat-item"><strong id="featured-total">—</strong><span>個精選專案</span></div>
+      <section class="page-shell platform" aria-labelledby="platform-title">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">PLATFORM</p>
+          <h2 id="platform-title">從需求到實作</h2>
+          <p>查看已公開的開發成果、測試版本與仍待確認的探索方向。</p>
+        </div>
+        <div class="bento">
+          <article class="bento-card product-card" id="products" data-reveal>
+            <div class="bento-art art-product" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="bento-content">
+              <p class="eyebrow">PRODUCTS</p>
+              <h3>產品</h3>
+              <p>從活動頁、報名到現場簽到，讓活動管理集中在同一套流程。EventFlow V2.9 正在開發中。</p>
+              <a class="text-link" href="./project.html?id=eventflow">查看 EventFlow</a>
+            </div>
+          </article>
+          <article class="bento-card" id="tools" data-reveal>
+            <div class="bento-art art-tools" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="bento-content">
+              <p class="eyebrow">DIGITAL TOOLS</p>
+              <h3>數位工具</h3>
+              <p>把台股個股、期貨與選擇權摘要集中在一個面板。目前為本機 Alpha 測試版本。</p>
+              <a class="text-link" href="./project.html?id=tw-stock-dashboard">查看股票看盤面板</a>
+            </div>
+          </article>
+          <article class="bento-card" id="ai" data-reveal>
+            <div class="bento-art art-ai" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="bento-content">
+              <p class="eyebrow">APPLIED AI</p>
+              <h3>AI 應用</h3>
+              <p>探索多模型整合及 AI 輔助派工與路線規劃。兩項構想的進度與公開連結均待確認。</p>
+              <div class="inline-links">
+                <a class="text-link" href="./project.html?id=multi-llm-router">多模型整合</a>
+                <a class="text-link" href="./project.html?id=field-dispatch-assistant">外勤跑單助手</a>
+              </div>
+            </div>
+          </article>
+        </div>
       </section>
 
-      <section class="projects-section" id="projects" aria-labelledby="projects-title">
+      <section class="lab-section" id="lab" aria-labelledby="lab-title">
         <div class="page-shell">
-          <div class="section-heading">
-            <div><p class="eyebrow">01 / PROJECTS</p><h2 id="projects-title">專案<span class="heading-period">.</span></h2></div>
-            <p class="section-note">從實際運作的系統到持續探索的點子，<br>每個專案都有自己的進度。</p>
+          <div class="section-heading" data-reveal>
+            <p class="eyebrow">LAB</p>
+            <h2 id="lab-title">實驗室</h2>
+            <p>收錄各階段的開發紀錄，包括自動化、機器人與遊戲實驗。</p>
           </div>
-          <section class="featured-section" id="featured-section" aria-labelledby="featured-title" hidden>
-            <div class="subsection-heading"><h3 id="featured-title">精選專案<span class="heading-period">.</span></h3><span>FEATURED</span></div>
-            <div class="project-grid featured-grid" id="featured-grid"></div>
-          </section>
-          <p class="load-state" id="project-load-state" role="status" aria-live="polite">正在載入專案資料…</p>
-          <div class="project-controls" aria-label="專案搜尋與篩選">
-            <label class="search-control"><span class="visually-hidden">搜尋專案名稱、描述或技術</span><input id="project-search" type="search" placeholder="搜尋名稱、描述或技術…" autocomplete="off"></label>
-            <label class="select-control"><span class="visually-hidden">依開發狀態篩選</span><select id="status-filter"><option value="all">所有狀態</option><option>開發中</option><option>測試中</option><option>已完成</option><option>暫停開發</option><option>資料待補</option></select></label>
-            <label class="select-control"><span class="visually-hidden">專案排序方式</span><select id="project-sort"><option value="newest">最近更新</option><option value="oldest">最早更新</option></select></label>
+          <div id="projects" class="archive">
+            <h3>專案檔案庫</h3>
+            <section class="stats-section" aria-label="專案統計">
+                <div class="stat-item"><strong id="project-total">—</strong><span>個專案</span></div>
+                <div class="stat-item"><strong id="domain-total">—</strong><span>個技術領域</span></div>
+                <div class="stat-item"><strong id="featured-total">—</strong><span>個精選專案</span></div>
+              </section>
+            <section class="featured-section" id="featured-section" aria-labelledby="featured-title" hidden>
+              <div class="subsection-heading"><h3 id="featured-title">精選專案</h3></div>
+              <div class="project-grid featured-grid" id="featured-grid"></div>
+            </section>
+            <p class="load-state" id="project-load-state" role="status" aria-live="polite">正在載入專案資料…</p>
+            <div class="project-controls" aria-label="專案搜尋與篩選">
+              <label class="search-control"><span class="visually-hidden">搜尋專案名稱、描述或技術</span><input id="project-search" type="search" placeholder="搜尋名稱、描述或技術…" autocomplete="off"></label>
+              <label class="select-control"><span class="visually-hidden">依開發狀態篩選</span><select id="status-filter"><option value="all">所有狀態</option><option>開發中</option><option>測試中</option><option>已完成</option><option>暫停開發</option><option>資料待補</option></select></label>
+              <label class="select-control"><span class="visually-hidden">專案排序方式</span><select id="project-sort"><option value="newest">最近更新</option><option value="oldest">最早更新</option></select></label>
+            </div>
+            <div class="filter-bar" id="category-filters" role="group" aria-label="依分類篩選專案"></div>
+            <p class="project-results-count" id="project-results-count" aria-live="polite"></p>
+            <div class="project-grid" id="project-grid" aria-live="polite"></div>
+            <p class="filter-empty" id="filter-empty" hidden>找不到符合條件的專案，請調整搜尋或篩選條件。</p>
           </div>
-          <div class="filter-bar" id="category-filters" role="group" aria-label="依分類篩選專案"></div>
-          <p class="project-results-count" id="project-results-count" aria-live="polite"></p>
-          <div class="project-grid" id="project-grid" aria-live="polite"></div>
-          <p class="filter-empty" id="filter-empty" hidden>找不到符合條件的專案，請調整搜尋或篩選條件。</p>
         </div>
       </section>
 
-      <section class="about-section page-shell" id="about" aria-labelledby="about-title">
-        <div class="about-index"><p class="eyebrow">02 / ABOUT KU HUB</p><span>想法從這裡<br>開始成形。</span><div class="about-stamp" aria-hidden="true">IDEAS<br>IN MOTION<span>✳</span></div></div>
-        <div class="about-copy"><h2 id="about-title">讓專案被看見<span class="heading-period">.</span></h2><p class="about-lead">一個持續更新的技術專案入口。</p><p class="about-description">KU HUB 集中整理正在實現與持續維護的專案。每張卡片的分類、狀態、技術及連結都由 JSON 資料產生；資訊尚未確認時會明確標示待補。</p><a class="text-link" href="https://github.com/qsc556633123321-stack" target="_blank" rel="noopener noreferrer">瀏覽 GitHub 公開專案 <span aria-hidden="true">↗</span></a></div>
-      </section>
+      <div class="page-shell studio">
+        <section id="about" class="section-heading" data-reveal>
+          <p class="eyebrow">ABOUT</p>
+          <h2>關於 KU HUB</h2>
+          <p>KU HUB 從技術專案檔案庫出發，逐步聚焦數位產品、工具與 AI 的實際用途。開發紀錄保留在實驗室，方便追蹤每個想法如何成形。</p>
+        </section>
+        <section id="contact" class="section-heading" data-reveal>
+          <p class="eyebrow">CONTACT</p>
+          <h2>聯絡</h2>
+          <p>網站回饋或問題可提交到 KU HUB 的 GitHub Issues。其他專案請透過各自的 Repository 交流。</p>
+          <a class="button button-primary" href="https://github.com/qsc556633123321-stack/KU-HUB/issues">前往 GitHub Issues</a>
+        </section>
+      </div>
     </main>
-
-    <footer class="site-footer"><div class="page-shell footer-inner"><a class="brand" href="./"><span class="brand-mark">K<span>U</span></span><span class="brand-name">KU HUB</span></a><p>把想法變成真正能運作的系統。</p><span class="footer-copy">GitHub Pages · V1.1</span></div></footer>
+    <footer class="site-footer">
+      <div class="page-shell footer-inner">
+        <a class="brand" href="./" aria-label="KU HUB 首頁"><img src="./assets/icons/favicon.svg" width="36" height="36" alt=""><span>KU HUB</span></a>
+        <span>V2.0</span>
+        <a href="https://github.com/qsc556633123321-stack">GitHub</a>
+      </div>
+    </footer>
   </body>
 </html>
