@@ -1,5 +1,5 @@
 const PROJECTS_URL = new URL("../data/projects.json", import.meta.url);
-const PROJECT_STATUSES = ["開發中", "測試中", "已完成", "暫停開發", "資料待補"];
+const PROJECT_STATUSES = ["正式上線", "開發中", "測試中", "已完成", "暫停開發", "資料待補"];
 const CATEGORY_NAMES = {
   "Web App": "Web App",
   "AI Tools": "AI Tools",
@@ -159,7 +159,7 @@ function createProjectCard(project) {
 
   const actions = createElement("div", "project-actions");
   appendExternalLink(actions, "GitHub ↗", project.github);
-  appendExternalLink(actions, "Demo ↗", project.demo);
+  appendExternalLink(actions, project.status === "正式上線" ? "進入正式系統 ↗" : "Demo ↗", project.demo);
   if (!project.github && !project.demo) {
     actions.append(createElement("span", "link-pending", "公開連結待確認"));
   }

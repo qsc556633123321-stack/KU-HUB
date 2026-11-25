@@ -152,6 +152,7 @@ p { overflow-wrap: anywhere; }
 .tag-list span, .project-meta > * { border: 1px solid var(--line); border-radius: 5px; padding: 3px 7px; color: var(--muted); font-size: .8rem; overflow-wrap: anywhere; }
 .status-badge[data-status="開發中"], .status-badge[data-status="已完成"] { color: #9ee5cc; }
 .status-badge[data-status="測試中"] { color: #f1cd9c; }
+.status-badge[data-status="正式上線"] { color: #86efac; border-color: rgba(134, 239, 172, .35); background: rgba(34, 197, 94, .08); }
 .project-action { display: inline-flex; align-items: center; min-height: 44px; padding-inline: 8px; color: var(--accent); }
 .project-action:hover { text-decoration: underline; }
 .link-pending { color: var(--muted); font-size: .875rem; }

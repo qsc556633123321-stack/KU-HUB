@@ -66,7 +66,7 @@ function renderProject(project, container) {
 
   const actions = createElement("div", "detail-actions");
   const githubLink = createLink("GitHub Repository ↗", project.github);
-  const demoLink = createLink("線上 Demo ↗", project.demo);
+  const demoLink = createLink(project.status === "正式上線" ? "進入正式系統 ↗" : "線上 Demo ↗", project.demo);
   if (githubLink) actions.append(githubLink);
   if (demoLink) actions.append(demoLink);
   if (!githubLink) actions.append(createElement("p", "link-pending", "GitHub Repository 尚待確認。"));
